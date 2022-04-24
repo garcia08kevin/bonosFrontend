@@ -1,0 +1,20 @@
+<form>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="nombre" name="nombre">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Apellido</label>
+        <input type="text" class="form-control" [(ngModel)]="apellido" name="apellido">
+    </div>
+    <div class="mb-3">
+        <label for="clave" class="form-label">Cedula</label>
+        <input type="text" class="form-control" [(ngModel)]="cedula" name="cedula">
+    </div>
+    <button (click)="agregarUsuario()" *ngIf="usuario.id==0" class="btn btn-primary">
+        Agregar
+    </button>
+    <button (click)="actualizarUsuario()" *ngIf="usuario.id!=0" class="btn btn-primary">
+        Actualizar
+    </button>
+</form>

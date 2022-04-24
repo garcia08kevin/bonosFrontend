@@ -1,0 +1,30 @@
+
+
+<form>
+    <div class="mb-3">
+        <label for="usuarioId" class="form-label">Acreedor</label>
+        <input type="text" class="form-control" name="usuarioId" [(ngModel)]="usuarioId" *ngIf="bono.id!=0" disabled>
+        <select class="form-control" name="inspectionTypeId" id="inspectionTypeId" [(ngModel)]="usuarioId" *ngIf="bono.id==0">
+          <option *ngFor="let type of usuarioList$|async" [value]="type.id">{{type.nombre}} {{type.apellido}}</option>
+        </select>
+      </div>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Valor</label>
+    <input type="text" class="form-control" [(ngModel)]="valor" name="Valor">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Descripcion</label>
+      <input type="text" class="form-control" [(ngModel)]="descripcion" name="Descripcion"> 
+    </div>
+    <div class="mb-3">
+        <label for="clave" class="form-label">Fecha</label>
+        <input [formControl]="dateObjectControl" class="form-control"  type="date" id="date-object" [(ngModel)]="fecha"  name="Fecha" />
+    </div>
+    
+    <button (click)="agregarBono()" *ngIf="bono.id==0" class="btn btn-primary">
+        Agregar
+    </button>
+    <button (click)="actualizarBono()" *ngIf="bono.id!=0" class="btn btn-primary">
+        Actualizar
+    </button>
+</form>
